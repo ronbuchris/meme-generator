@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/helpers.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Meme-Generator</title>
+  </head>
+  <body onload="onInit()">
+    <div class="main-screen" onclick="onToggleMenu()"></div>
+    <div class="header-layout">
+      <header class="main-header main-layout flex align-center space-between">
+        <div class="logo"><img src="logo/LOGO.png" alt="" /></div>
+        <ul class="main-nav flex clear-list">
+          <li><a href="index.html">Gallery</a></li>
+          <li><a href="#">Memes</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+        <button class="btn-menu" onclick="toggleMenu()">☰</button>
+      </header>
+    </div>
+    <div class="search-container">
+      <form action="" class="search-bar" autocomplete="off">
+        <input
+          oninput="onSearchImg(this.value)"
+          type="search"
+          name="search"
+          pattern=".*\S.*"
+          required
+        />
+        <button class="search-btn" type="submit">Search</button>
+      </form>
+    </div>
+    <main class="main-gallery">
+      <div class="gallery main-layout flex align-center"></div>
+    </main>
+    <div class="edit-container flex space-around main-layout hide">
+      <div class="canvas-container">
+        <canvas
+          id="my-canvas"
+          height="450"
+          width="450"
+          onmousedown="onDown()"
+          onmouseup="onUp()"
+          onmousemove="onMove(event)"
+          onclick="canvasClicked(event)"
+        ></canvas>
+      </div>
+      <div class="edit-container grid">
+        <!-- <img class="edit-img" src="icons/tools.png" alt="" /> -->
+        <input
+          oninput="onWriteTxt(this.value)"
+          type="text"
+          class="btn-text"
+          name="text"
+          placeholder="Text here"
+          autocomplete="off"
+        />
+        <button
+          class="btn-add flex align-center justify-center"
+          onclick="onAdd()"
+        >
+          <img src="icons/add.png" alt="" />
+        </button>
+        <button
+          class="btn-trash flex align-center justify-center"
+          onclick="onRemoveText()"
+        >
+          <img src="icons/trash.png" alt="" />
+        </button>
+        <button
+          class="btn-save flex align-center justify-center"
+          onclick="onSaveMeme()"
+        >
+          <img src="icons/save.png" alt="" />
+        </button>
+        <button
+          class="btn-increase-font flex align-center justify-center"
+          onclick="onFontSize(3)"
+        >
+          <img class="increase" src="icons/increase-font.png" alt="" />
+        </button>
+        <button
+          class="btn-decrease-font flex align-center justify-center"
+          onclick="onFontSize(-3)"
+        >
+          <img src="icons/decrease-font.png" alt="" />
+        </button>
+        <button
+          class="btn-align-left flex align-center justify-center"
+          onclick="onChangeAlign(40)"
+        >
+          <img src="icons/align-left.png" alt="" />
+        </button>
+        <button
+          class="btn-align-center flex align-center justify-center"
+          onclick="onChangeAlign(200)"
+        >
+          <img src="icons/align-center.png" alt="" />
+        </button>
+        <button
+          class="btn-align-right flex align-center justify-center"
+          onclick="onChangeAlign(350)"
+        >
+          <img src="icons/align-right.png" alt="" />
+        </button>
+        <button
+          class="btn-text-up flex align-center justify-center"
+          onclick="onChangePos(-5)"
+        >
+          <img src="icons/up.png" alt="" />
+        </button>
+        <button
+          class="btn-text-down flex align-center justify-center"
+          onclick="onChangePos(5)"
+        >
+          <img src="icons/down.png" alt="" />
+        </button>
+        <button class="btn-download flex align-center justify-center">
+          <a href="#" onclick="downloadImg(this)" download="my-img.jpg"
+            ><img src="icons/download.png" alt=""
+          /></a>
+        </button>
+        <button
+          class="btn-double-arrows flex align-center justify-center"
+          onclick="onSwitchText()"
+        >
+          <img src="icons/double-arrows.png" alt="" />
+        </button>
+        <button class="btn-bg-color flex align-center justify-center">
+          <img src="icons/palette.png" alt="" />
+          <input
+            type="color"
+            class="bgc-color"
+            value="#ffffff"
+            oninput="onChangeColor(this.value);"
+          />
+        </button>
+      </div>
+    </div>
+    <div class="save-meme">
+      <div class="meme-canvas-container"></div>
+    </div>
+
+    <footer class="main-footer">
+      <div class="footer-container main-layout flex space-between align-center">
+        <div class="logo"><img src="logo/LOGO.png" alt="" /></div>
+        <small>© 2021 -MemeGenerator-</small>
+      </div>
+    </footer>
+
+    <script src="js/service/upload-service.js"></script>
+    <script src="js/service/storage-service.js"></script>
+    <script src="js/service/main-service.js"></script>
+    <script src="js/controller/main-controller.js"></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+/* FLEX */
+.flex {
+  display: flex;
+}
+.flex.space-between {
+  justify-content: space-between;
+}
+.flex.justify-center {
+  justify-content: center;
+}
+.flex.align-center {
+  align-items: center;
+}
+
+.clear-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* GRID */
+
+.grid {
+  display: grid;
+}
+
+/* MORE */
+
+.hide {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
