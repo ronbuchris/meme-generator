@@ -193,7 +193,6 @@ function downloadImg(elLink) {
 
 function uploadImg() {
   const imgDataUrl = gCanvas.toDataURL('image/jpeg');
-
   function onSuccess(uploadedImgUrl) {
     console.log(uploadedImgUrl);
     const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl);
@@ -217,5 +216,9 @@ function doUploadImg(imgDataUrl, onSuccess) {
     .then(res => res.text())
     .then(url => {
       onSuccess(url);
+    })
+
+    .catch(err => {
+      console.error(err);
     });
 }
