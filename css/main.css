@@ -148,7 +148,7 @@ body {
 }
 
 .btn-save {
-  grid-row: 2/3;
+  grid-row: 7/8;
   grid-column: 1/2;
   cursor: pointer;
 }
@@ -209,6 +209,12 @@ body {
   text-align: center;
   grid-row: 4/5;
   grid-column: 5/6;
+  cursor: pointer;
+}
+.share-btn {
+  text-align: center;
+  grid-row: 7/8;
+  grid-column: 3/4;
   cursor: pointer;
 }
 

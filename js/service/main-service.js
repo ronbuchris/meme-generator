@@ -233,14 +233,6 @@ function saveMeme() {
   saved.push(gImgs[gId]);
   saveToStorage(KEY, saved);
 }
-function saveMeme() {
-  var saved = loadFromStorage(KEY) ? loadFromStorage(KEY) : [];
-  gImgs[gId].url = gCanvas.toDataURL('image/jpeg');
-  gImgs[gId].meme = gMeme;
-  gImgs[gId].isSave = true;
-  saved.push(gImgs[gId]);
-  saveToStorage(KEY, saved);
-}
 
 function memeLoad(arr) {
   if (!arr) return;
