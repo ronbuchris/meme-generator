@@ -10,21 +10,31 @@
     <title>Meme-Generator</title>
   </head>
   <body onload="onInit()">
-    <div class="main-screen" onclick="onToggleMenu()"></div>
-    <div class="header-layout">
-      <header class="main-header main-layout flex align-center space-between">
-        <div class="logo"><img src="logo/LOGO.png" alt="" /></div>
-        <ul class="main-nav flex clear-list">
-          <li><a href="index.html">Gallery</a></li>
-          <li><a href="#">Memes</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-        <button class="btn-menu" onclick="toggleMenu()">☰</button>
-      </header>
-    </div>
+    <header>
+      <div class="main-screen" onclick="onToggleMenu()"></div>
+      <div class="main-header">
+        <div
+          class="
+            main-header-container main-layout
+            flex
+            align-center
+            space-between
+          "
+        >
+          <div class="logo"><img src="logo/LOGO.png" alt="" /></div>
+          <ul class="main-nav flex clear-list">
+            <li><a href="index.html">Gallery</a></li>
+            <li onclick="onMemeLoad()"><a href="#">Memes</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+          <button class="btn-menu" onclick="toggleMenu()">☰</button>
+        </div>
+      </div>
+    </header>
     <div class="search-container">
       <form action="" class="search-bar" autocomplete="off">
         <input
+          class="input-search"
           oninput="onSearchImg(this.value)"
           type="search"
           name="search"
@@ -37,20 +47,37 @@
     <main class="main-gallery">
       <div class="gallery main-layout flex align-center"></div>
     </main>
+    <!-- Me -->
+    <section class="about-me">
+      <div class="about flex justify-center align-center">
+        <img class="me-img" src="imgs/team-member/4.jpeg" />
+        <div>
+          <h4>Ron Buchris</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+            mollitia officia numquam quas dolor totam ipsa iusto laudantium
+            cupiditate ea pariatur quidem nihil, ullam modi maiores deleniti qui
+            beatae! Beatae.
+          </p>
+          <div class="social">
+            <a target="_blank" href="https://www.linkedin.com/ronbuchris">
+              <img src="icons/linkedin-logo.png"
+            /></a>
+            <a target="_blank" href="https://www.facebook.com/ronbuchris">
+              <img src="icons/facebook-logo.png"
+            /></a>
+            <a target="_blank" href="https://www.github.com/ronbuchris"
+              ><img src="icons/github-logo.png"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </section>
     <div class="edit-container flex space-around main-layout hide">
       <div class="canvas-container">
-        <canvas
-          id="my-canvas"
-          height="450"
-          width="450"
-          onmousedown="onDown()"
-          onmouseup="onUp()"
-          onmousemove="onMove(event)"
-          onclick="canvasClicked(event)"
-        ></canvas>
+        <canvas id="my-canvas" height="450" width="450"></canvas>
       </div>
       <div class="edit-container grid">
-        <!-- <img class="edit-img" src="icons/tools.png" alt="" /> -->
         <input
           oninput="onWriteTxt(this.value)"
           type="text"
@@ -139,10 +166,20 @@
             oninput="onChangeColor(this.value);"
           />
         </button>
+        <div class="stickers-container flex justify-center">
+          <img src="stickers/back.png" onclick="onBackSticker()" />
+          <div class="stickers flex space-around">
+            <img src="stickers/1.png" onclick="onSticker(this)" />
+            <img src="stickers/2.png" onclick="onSticker(this)" />
+            <img src="stickers/3.png" onclick="onSticker(this)" />
+            <img src="stickers/4.png" onclick="onSticker(this)" />
+          </div>
+          <img src="stickers/next.png" onclick="onSticker()" />
+        </div>
       </div>
     </div>
-    <div class="save-meme">
-      <div class="meme-canvas-container"></div>
+    <div class="save-memes main-layout flex align-center hide">
+      <div class="meme-canvas-container main-layout flex align-center"></div>
     </div>
 
     <footer class="main-footer">

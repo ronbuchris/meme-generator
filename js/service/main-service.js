@@ -161,10 +161,6 @@ function searchImg(txt) {
   return imgs;
 }
 
-// function getImgs() {
-//   return gImgs;
-// }
-
 function drawImg(currImg) {
   gCtx.drawImage(currImg, 0, 0, gCanvas.width, gCanvas.height);
 }
@@ -210,7 +206,6 @@ function changeTextColor(color) {
 }
 
 function changePos(pos) {
-  console.log(pos);
   gMeme.lines[gMeme.selectedLineIdx].y += pos;
   gPosY = gMeme.lines[gMeme.selectedLineIdx].y;
 }
@@ -237,4 +232,20 @@ function saveMeme() {
   gImgs[gId].isSave = true;
   saved.push(gImgs[gId]);
   saveToStorage(KEY, saved);
+}
+function saveMeme() {
+  var saved = loadFromStorage(KEY) ? loadFromStorage(KEY) : [];
+  gImgs[gId].url = gCanvas.toDataURL('image/jpeg');
+  gImgs[gId].meme = gMeme;
+  gImgs[gId].isSave = true;
+  saved.push(gImgs[gId]);
+  saveToStorage(KEY, saved);
+}
+
+function memeLoad(arr) {
+  if (!arr) return;
+  var imgs = arr.filter(img => {
+    return img.isSave;
+  });
+  return imgs;
 }

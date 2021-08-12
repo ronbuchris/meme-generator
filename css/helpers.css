@@ -11,6 +11,9 @@
 .flex.align-center {
   align-items: center;
 }
+.flex.space-around {
+  justify-content: space-around;
+}
 
 .clear-list {
   list-style-type: none;
