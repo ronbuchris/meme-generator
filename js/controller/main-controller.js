@@ -6,6 +6,7 @@ var gSize = 40;
 var gColor;
 var gTxt;
 var gCurrImg;
+var gElCanvas;
 var gIsDownload = false;
 var gIsDown = false;
 var gIsDrag = false;
