@@ -25,7 +25,7 @@ var gMeme = {
       align: 'center',
       color: 'white',
       x: 170,
-      y: 400,
+      y: 250,
       width: 90,
     },
   ],
@@ -178,6 +178,8 @@ function renderLines(imgs) {
 }
 
 function drawImg(currImg) {
+  gCanvas.height =
+    (currImg.naturalHeight * gCanvas.width) / currImg.naturalWidth;
   gCtx.drawImage(currImg, 0, 0, gCanvas.width, gCanvas.height);
 }
 
@@ -226,7 +228,7 @@ function creatNewLine() {
 }
 
 function saveMeme() {
-  var saved = loadFromStorage(KEY);
+  var saved = loadFromStorage(KEY) ? loadFromStorage(KEY) : [];
   gImgs[gId].url = gCanvas.toDataURL('image/jpeg');
   gImgs[gId].meme = gMeme;
   gImgs[gId].isSave = true;
